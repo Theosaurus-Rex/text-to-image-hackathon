@@ -1,3 +1,4 @@
+
 const button = document.getElementById("generate-button")
 const apiKey = "2b97a5e7-1e72-4c35-96bc-038a43bdcafc"
 deepai.setApiKey(apiKey)
@@ -14,3 +15,6 @@ function generateImage() {
     const textInput = document.getElementById("text-input").value
     console.log(textInput)
 }
+
+
+
