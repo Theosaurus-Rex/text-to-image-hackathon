@@ -15,14 +15,33 @@ function generateImage() {
     //updateImageUrl which updates the image source on the main page
     deepai.callStandardApi("text2img", {
           text: textInput
-        }).then(res => updateImageUrl(res))
+        }).then(res => {
+            updateImageUrl(res.output_url)
+            getCaptions(res.output_url)
+        })
         
-    //updates image url from api response
-    function updateImageUrl(url){
-        document.getElementById("generated-image").src = url.output_url
-    }
 
 }
+
+//updates image url from api response
+function updateImageUrl(url){
+    document.getElementById("generated-image").src = url
+}
+
+function getCaptions(img){
+    deepai.callStandardApi("densecap", {
+        image: img
+      }).then(res => updateImageCaptions(res))
+    
+    function updateImageCaptions(captions) {
+        document.getElementById("image-tags").innerHTML = captions.output.captions[0].caption
+        console.log(captions)
+    }
+}
+
+
+
+
 
 
 
