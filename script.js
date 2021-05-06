@@ -1,13 +1,13 @@
-const deepai = require('deepai')
-let input = document.getElementById("text-input").value
-const generateButton = document.getElementById("generate-button")
-generateButton.addEventListener("click", generate)
+const button = document.getElementById("generate-button")
+const apiKey = "2b97a5e7-1e72-4c35-96bc-038a43bdcafc"
+deepai.setApiKey(apiKey)
 
-deepai.setApiKey('2b97a5e7-1e72-4c35-96bc-038a43bdcafc')
+deepai.callStandardApi("sentiment-analysis", {
+  text: "I'm really happy today!"
+}).then(res => console.log(res))
 
-(async function generate() {
-    var response = await deepai.callStandardApi("text2img", {
-            text: input,
-    });
-    console.log(response);
-})()
+button.addEventListener("click", generateImage)
+
+function generateImage() {
+    console.log("Button is working!")
+}
