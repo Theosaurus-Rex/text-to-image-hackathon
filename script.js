@@ -14,6 +14,16 @@ button.addEventListener("click", generateImage)
 function generateImage() {
     const textInput = document.getElementById("text-input").value
     console.log(textInput)
+    
+    deepai.callStandardApi("text2img", {
+          text: textInput
+        }).then(res => updateImageUrl(res))
+        
+
+    function updateImageUrl(url){
+        document.getElementById("generated-image").src = url.output_url
+    }
+
 }
 
 
