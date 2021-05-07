@@ -34,6 +34,13 @@ function getCaptions(img){
       }).then(res => updateImageCaptions(res))
     
     function updateImageCaptions(captions) {
+        for (let cap in captions) {
+            if (cap.includes("grass"||"leaves"||"sky"||"ground")) {
+                delete cap
+            } else {
+                continue
+            }
+        }
         document.getElementById("image-tags").innerHTML = captions.output.captions[0].caption
         console.log(captions)
     }
