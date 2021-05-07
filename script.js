@@ -31,22 +31,23 @@ function updateImageUrl(url){
 function getCaptions(img){
     deepai.callStandardApi("densecap", {
         image: img
-      }).then(res => updateImageCaptions(res))
+      }).then(res => updateImageCaptions(res.output.captions))
     
-    function updateImageCaptions(captions) {
-        for (let cap in captions.output.captions) {
-            if (cap.includes("grass"||"leaves"||"sky"||"ground")) {
-                delete cap
-            } else {
+      function updateImageCaptions(captions) {
+        for (let caption in captions) {
+            if (captions.caption.includes("grass"||"sky"||"leaves"||"ground")){
+                caption ++
                 continue
+            } else {
+                document.getElementById("image-tags").innerHTML = captions[x].caption
+                break
             }
         }
-        document.getElementById("image-tags").innerHTML = captions.output.captions[0].caption
         console.log(captions)
     }
-}
-
-
+        // document.getElementById("image-tags").innerHTML = captions.output.captions[0].caption
+        // console.log(captions)
+    }
 
 
 
