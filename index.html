@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <title>DeepAI Image Generator</title>
 </head>
-<body>
-    <nav id= "nav-bar">
-        <a href="index.html">Home</a>
-        <a href="aboutus.html">About the Project</a>
+<body class="flex flex-col flex-wrap items-center justify-center pb-20">
+    <nav id= "nav-bar" class="flex justify-center bg-black text-white w-screen">
+        <a href="index.html" class="m-5">Home</a>
+        <a href="aboutus.html" class="m-5">About the Project</a>
     </nav>
-    <h1>DeepAI Image Generator</h1>
-    <p>Welcome to the DeepAI Image Generator! Simply enter a text prompt to feed to our generator, then hit the generate button and our model will create an image from scratch.</p>
+    <h1 class="text-7xl m-4">DeepAI Image Generator</h1>
+    <p class="text-2xl m-10 text-center">Welcome to the DeepAI Image Generator! Simply enter a text prompt to feed to our generator, then hit the generate button and our model will create an image from scratch.</p>
 
-    <div id="image-generation">
+    <div id="image-generation" class="flex">
 
-    <img src="./img/placeholder-image.png" alt="Placeholder Image" id="generated-image" width="500px">
+    <img src="./img/placeholder-image.png" alt="Placeholder Image" id="generated-image" width="470px" class="mr-10 rounded-lg">
 
+    <div id="form" class="flex flex-col m-5">
+    <input id="text-input" type="text-field" class="border-4 h-20 text-center" placeholder="Type Something!">
 
-    <input id="text-input" type="text-field">
-
-    <button id="generate-button">Generate</button>
+    <button id="generate-button" class="bg-black text-white p-5 rounded-md mt-5">Generate</button>
+    <div class="flex flex-col">
+        <p class="text-xl mt-5 font-bold">What does the AI think of this image?</p>
+        <p id="image-tags" class="text-center text-lg"></p>
+    </div>
+    </div>
     </div>
     
-    <div>
-        <p>What does the AI think of this image?</p>
-        <p id="image-tags"></p>
-    </div>
     <!-- Link Scripts -->
     <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
     <script src="script.js"></script>
