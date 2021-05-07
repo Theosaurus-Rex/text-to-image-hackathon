@@ -34,7 +34,7 @@ function getCaptions(img){
       }).then(res => updateImageCaptions(res))
     
     function updateImageCaptions(captions) {
-        for (let cap in captions) {
+        for (let cap in captions.output.captions) {
             if (cap.includes("grass"||"leaves"||"sky"||"ground")) {
                 delete cap
             } else {
