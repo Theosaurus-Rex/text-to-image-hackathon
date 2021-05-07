@@ -8,17 +8,25 @@
     <title>DeepAI Image Generator</title>
 </head>
 <body>
+    <nav id= "nav-bar">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About the Project</a>
+    </nav>
     <h1>DeepAI Image Generator</h1>
     <p>Welcome to the DeepAI Image Generator! Simply enter a text prompt to feed to our generator, then hit the generate button and our model will create an image from scratch.</p>
 
     <div id="image-generation">
-    <img src="" alt="Placeholder Image" id="generated-image">
+    <img src="./img/placeholder-image.png" alt="Placeholder Image" id="generated-image">
 
     <input id="text-input" type="text-field">
 
     <button id="generate-button">Generate</button>
     </div>
     
+    <div>
+        <p>What does the AI think of this image?</p>
+        <p id="image-tags"></p>
+    </div>
     <!-- Link Scripts -->
     <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
     <script src="script.js"></script>
